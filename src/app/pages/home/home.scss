@@ -1,0 +1,85 @@
+:host {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container { width: min(1180px, 92vw); margin: 0 auto; }
+
+.hero {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 24px 0;
+}
+.hero img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+.hero h1 {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    color: #fff; font-weight: 700;
+    font-size: clamp(20px, 4.2vw, 42px);
+    text-shadow: 0 3px 10px rgba(0,0,0,.45);
+}
+
+.grid {
+    background: #f6f6f6;
+    padding: 16px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 24px 0 48px;
+}
+
+.card,
+.card:visited {
+    display: block;
+    position: relative;
+    isolation: isolate;   
+    color: inherit;
+    text-decoration: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.card::after {
+    content: "";
+    z-index: 0;
+    position: absolute; inset: 0;
+    background: linear-gradient(to top,
+                rgba(0,0,0,.68) 0%,
+                rgba(0,0,0,.35) 45%,
+                rgba(0,0,0,0) 70%);
+    pointer-events: none;
+}
+
+.card .image {
+    position: relative;
+    z-index: 0;
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+    transition: transform .25s ease;
+}
+
+.card .title {
+    position: absolute;
+    z-index: 1;  
+    left: 16px; right: 16px; bottom: 16px;
+    color: #fff;
+    font-weight: 700;      
+    font-size: clamp(15px, 1.8vw, 20px);
+    line-height: 1.15;
+    letter-spacing: .2px;
+    text-shadow:
+    0 2px 12px rgba(0,0,0,.55),
+    0 0 1px rgba(0,0,0,.9); 
+}
+
+.card:hover .image { transform: scale(1.08); }

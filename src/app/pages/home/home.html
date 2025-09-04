@@ -1,0 +1,16 @@
+<app-header></app-header>
+<main class="container">
+  <section class="hero">
+    <img src="assets/img/font-mer.jpg" alt="">
+    <h1>Chez vous, partout et ailleurs</h1>
+  </section>
+
+  <section class="grid">
+    <a class="card" *ngFor="let l of listings" [routerLink]="['/listing', l.id]">
+      <div class="image" [style.backgroundImage]="'url(' + (l.cover || l.pictures[0]) + ')'"></div>
+      <div class="title">{{ l.title }}</div>
+    </a>
+  </section>
+  
+</main>
+<app-footer></app-footer>

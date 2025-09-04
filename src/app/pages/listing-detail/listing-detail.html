@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<!-- Le main va s'afficher que si le logement l est défini (après le chargement) -->
+<main class="container" *ngIf="l as x">
+  <div class="carousel">
+    <button class="nav left" (click)="prev()">‹</button>
+    <img [src]="x.pictures[i]" [alt]="x.title">
+    <button class="nav right" (click)="next()">›</button>
+    <div class="counter">{{ i+1 }}/{{ x.pictures.length }}</div>
+  </div>
+
+  <!-- Détails du logement -->
+  <section class="top">
+    <div class="left">
+      <h1>{{ x.title }}</h1>
+      <div class="location">{{ x.location }}</div>
+      <div class="tags">
+        <span class="tag" *ngFor="let t of x.tags">{{ t }}</span>
+      </div>
+    </div>
+    <!-- Hôte et note -->
+    <div class="right">
+      <div class="host">
+        <div class="name">{{ x.host.name }}</div>
+        <img class="avatar" [src]="x.host.picture" [alt]="x.host.name">
+      </div>
+      <div class="rating">
+        <span *ngFor="let f of stars(x.rating)" class="star" [class.filled]="f">★</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Description et équipements -->
+  <section class="cols">
+    <div class="acc">
+      <button class="head" (click)="descOpen = !descOpen">
+        <span>Description</span>
+        <svg class="chev" [class.up]="descOpen" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7.41 8.59 12 13.17 16.59 8.59 18 10l-6 6-6-6z"></path>
+        </svg>
+      </button>
+      <div class="panel" *ngIf="descOpen">{{ x.description }}</div>
+    </div>
+    <div class="acc">
+      <button class="head" (click)="eqOpen = !eqOpen">
+        <span>Équipements</span>
+        <svg class="chev" [class.up]="descOpen" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7.41 8.59 12 13.17 16.59 8.59 18 10l-6 6-6-6z"></path>
+        </svg>
+      </button>
+      <div class="panel" *ngIf="eqOpen">
+        <ul><li *ngFor="let e of x.equipments">{{ e }}</li></ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

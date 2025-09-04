@@ -1,0 +1,19 @@
+<app-header></app-header>
+
+<main class="container">
+  <img class="banner" src="assets/img/font-montagne.jpg" alt="Montagne">
+
+  <section *ngFor="let it of items; let i = index" class="acc">
+    <button class="head" (click)="toggle(i)">
+      <span>{{ it.title }}</span>
+      <svg class="chev" [class.up]="open===i" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"></path>
+      </svg>
+    </button>
+    <div class="panel" *ngIf="open===i">
+      {{ it.text }}
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
