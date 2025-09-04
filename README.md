@@ -3,9 +3,8 @@
 ## Prérequis
 
 Cloner l'API
-```bash
 [https://github.com/EfreiBdx/KaBack/tree/main](https://github.com/EfreiBdx/KaBack/tree/main)
-```
+
 ```bash
 npm i
 ```
@@ -24,6 +23,4 @@ npm start
 
 ## Trouver un logement
 
-```bash
 [http://localhost:4200/](http://localhost:4200/)
-```
